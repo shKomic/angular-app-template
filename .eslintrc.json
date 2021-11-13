@@ -18,7 +18,8 @@
         "plugin:@angular-eslint/recommended",
         "plugin:@angular-eslint/template/process-inline-templates",
         "prettier",
-        "prettier/@typescript-eslint"
+        "prettier/@typescript-eslint",
+        "eslint:recommended"
       ],
       "rules": {
         "@angular-eslint/directive-selector": [
@@ -35,6 +36,30 @@
             "type": "element",
             "prefix": "app",
             "style": "kebab-case"
+          }
+        ],
+        "semi": ["error", "always"],
+        "semi-spacing": ["error", {"after": true, "before": false}],
+        "semi-style": ["error", "last"],
+        "no-extra-semi": "error",
+        "no-unexpected-multiline": "error",
+        "no-unreachable": "error",
+        "no-console": ["warning", { "allow": ["warn", "error"] }],
+        "import/order": [
+          "error",
+          {
+            "groups": [
+              ["builtin", "external"],
+              ["internal", "index","parent", "sibling"]
+            ],
+            "pathGroups": [
+              {
+                "pattern": "@/**",
+                "group": "internal",
+                "position": "before"
+              }
+            ],
+            "newlines-between": "always"
           }
         ]
       }
