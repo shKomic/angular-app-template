@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  angular:
+  demo:
     build: .
     command: ng serve --host=0.0.0.0
     ports:
@@ -11,3 +11,18 @@ services:
         source: .
         target: "/projects"
     tty: true
+    depends_on:
+      - lib
+  lib:
+    build: .
+    command: sh ./scripts/build_lib.sh
+    volumes:
+      - type: bind
+        source: .
+        target: "/projects"
+    tty: true
+    healthcheck:
+      test: ["CMD-SHELL", "check_health.sh"]
+      interval: 1s
+      timeout: 10s
+      retries: 10

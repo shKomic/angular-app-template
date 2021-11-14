@@ -6,9 +6,9 @@
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "paths": {
-      "editor": [
-        "dist/editor/editor",
-        "dist/editor"
+      "@org/lib": [
+        "dist/lib/lib",
+        "dist/lib"
       ]
     },
     "strict": true,
